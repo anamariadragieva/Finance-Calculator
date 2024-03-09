@@ -85,37 +85,25 @@ while True:
         # user inputs the data needed to calculate monthly home loan repayment
         while True:
             house_value = input("\n\tEnter the present value of the house (£): ")
-            if "-" in house_value:
-                print("\n\tThe house value cannot be negative!")
-            elif not house_value.isnumeric():
-                print("\n\tPlease use numbers only!")
-            elif int(house_value) == 0:
-                print("\n\tThe house value cannot be 0!")
-            else: 
-                house_value = int(house_value)
+            if not house_value.replace(".", "", 1).isdigit() or float(house_value) <= 0:
+                print("\n\tPlease enter a valid positive number for the house value.")
+            else:
+                house_value = float(house_value)
                 break
 
         while True:
             interest_rate = input("\n\tEnter the interest rate (%): ")
-            if "-" in interest_rate:
-                print("\n\tThe interest rate cannot be negative!")
-            elif not interest_rate.replace(".","",1).isnumeric():
-                print("\n\tPlease use numbers only!")
-            elif float(interest_rate) == 0:
-                print("\n\tThe interest rate cannot be 0!")
-            else: 
+            if not interest_rate.replace(".", "", 1).isdigit() or float(interest_rate) <= 0:
+                print("\n\tPlease enter a valid positive number for the interest rate.")
+            else:
                 interest_rate = float(interest_rate)
                 break
 
         while True:
             months = input("\n\tEnter the number of months needed to repay the bond: ")
-            if "-" in months:
-                print("\n\tThe months spent repaying cannot be negative!")
-            elif not months.isnumeric():
-                print("\n\tPlease use numbers only!")
-            elif int(months) == 0:
-                print("\n\tThe months spent repaying cannot be 0!")
-            else: 
+            if not months.isdigit() or int(months) <= 0:
+                print("\n\tPlease enter a valid positive integer for the number of months.")
+            else:
                 months = int(months)
                 break
 
