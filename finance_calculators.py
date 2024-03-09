@@ -112,11 +112,6 @@ while True:
         repayment = (((interest_rate / 100)/ 12)* house_value)/(1 - (1 + ((interest_rate / 100)/ 12))**(-months))
         print(f"\n\tThe amount to be paid each months is £{repayment:.2f}\n")
 
-
-    elif not choice.isalpha():
-        print("\n\tPlease type letters only!")
-
-    elif choice != "investment" and choice != "bond":
-        print("\n\n\tInvalid choice! Please select one of the options above.")
-    
-
+    elif not choice.isalpha() or choice not in ["investment", "bond"]:
+        print("\n\n\tInvalid choice! Please select either 'investment' or 'bond' from the options above.")
+        
